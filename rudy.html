@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genetic Profile Summary Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #7f8c8d;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#nutrients">Nutrients</a></li>
+            <li><a href="#mood">Mood & Brain</a></li>
+            <li><a href="#heart">Heart Health</a></li>
+            <li><a href="#detox">Detoxification</a></li>
+            <li><a href="#autoimmune">Autoimmune</a></li>
+            <li><a href="#hormones">Hormones</a></li>
+            <li><a href="#longevity">Longevity</a></li>
+            <li><a href="#other">Other Areas</a></li>
+        </ul>
+    </nav>
+
+    <h1>Genetic Profile Summary Report</h1>
+
+    <div id="nutrients" class="section">
+        <h2>1. Nutrients - Vitamins and Minerals</h2>
+        <ul>
+            <li>MTHFR variants affecting folate metabolism</li>
+            <li>Variants impacting vitamin B12, D, and iron metabolism</li>
+            <li>Potential need for supplementation in several areas</li>
+        </ul>
+    </div>
+
+    <div id="mood" class="section">
+        <h2>2. Mood and Brain Health</h2>
+        <ul>
+            <li>BDNF variant associated with decreased levels</li>
+            <li>COMT variant suggesting intermediate enzyme activity</li>
+            <li>Various serotonin and dopamine-related gene variants</li>
+            <li>Mixed profile for anxiety and depression risk</li>
+        </ul>
+    </div>
+
+    <div id="heart" class="section">
+        <h2>3. Heart Health</h2>
+        <ul>
+            <li>Favorable PCSK9 variants for LDL cholesterol</li>
+            <li>Some variants associated with higher triglycerides and Lp(a) levels</li>
+            <li>Mixed profile for blood pressure regulation</li>
+            <li>Some increased inflammatory markers</li>
+        </ul>
+    </div>
+
+    <div id="detox" class="section">
+        <h2>4. Detoxification and Metabolism</h2>
+        <ul>
+            <li>Generally normal function for most drug-metabolizing enzymes</li>
+            <li>Potential reduced capacity for handling certain environmental toxins</li>
+            <li>Mixed profile for handling oxidative stress</li>
+        </ul>
+    </div>
+
+    <div id="autoimmune" class="section">
+        <h2>5. Autoimmune and Inflammatory Conditions</h2>
+        <ul>
+            <li>Absence of high-risk HLA variants for certain autoimmune conditions</li>
+            <li>Some pro-inflammatory gene variants present</li>
+            <li>Mixed risk profile for various autoimmune conditions</li>
+        </ul>
+    </div>
+
+    <div id="hormones" class="section">
+        <h2>6. Hormones and Fertility</h2>
+        <ul>
+            <li>Variants affecting estrogen and thyroid hormone metabolism</li>
+            <li>Some PCOS-related variants present</li>
+            <li>Mixed profile for fertility-related genes</li>
+        </ul>
+    </div>
+
+    <div id="longevity" class="section">
+        <h2>7. Longevity and Aging</h2>
+        <ul>
+            <li>Favorable FOXO3A variants associated with longevity</li>
+            <li>Mixed profile for inflammation and oxidative stress handling</li>
+            <li>Some variants affecting telomere length and DNA repair</li>
+        </ul>
+    </div>
+
+    <div id="other" class="section">
+        <h2>Other Notable Areas</h2>
+        <ul>
+            <li>Intermediate to fast caffeine metabolism</li>
+            <li>Typical alcohol response</li>
+            <li>Normal bitter taste perception</li>
+            <li>Tendency towards evening preference in sleep patterns</li>
+            <li>Genetic predisposition towards endurance activities</li>
+            <li>Various influences on micronutrient metabolism and dietary preferences</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>This genetic profile presents a complex picture with both favorable and potentially challenging variants across various health domains. It underscores the importance of personalized health strategies, particularly in areas of nutrient metabolism, cardiovascular health, and inflammation management. While genetics provide valuable insights, they should be considered alongside lifestyle factors and environmental influences for a comprehensive approach to health and wellness.</p>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
