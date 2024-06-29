@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+const examsData = [
+  {
+    name: "Blood Pressure Screening",
+    issuesDetected: "Hypertension, cardiovascular disease",
+    estimatedRisk: "30% (lifetime risk)",
+    averageCost: 25,
+    standardPractice: "Yes",
+    performedWithBloodTest: "No",
+    performedByLifeInsurance: "Yes",
+    relativePriority: "High",
+    revisedPriority: "High"
+  },
+  {
+    name: "Cholesterol Screening (Lipid Panel)",
+    issuesDetected: "High cholesterol, risk of heart disease, stroke",
+    estimatedRisk: "10-20% (lifetime risk)",
+    averageCost: 60,
+    standardPractice: "Yes",
+    performedWithBloodTest: "Yes",
+    performedByLifeInsurance: "Yes",
+    relativePriority: "High",
+    revisedPriority: "High"
+  },
+  // ... Add more exam data here
+];
+
+export default function MedicalExamsApp() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("name");
+
+  const filteredAndSortedExams = examsData
+    .filter(exam => 
+      exam.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      exam.issuesDetected.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortBy === "name") return a.name.localeCompare(b.name);
+      if (sortBy === "cost") return a.averageCost - b.averageCost;
+      if (sortBy === "priority") return b.relativePriority.localeCompare(a.relativePriority);
+      return 0;
+    });
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Medical Exams Information</h1>
+      
+      <div className="mb-4 flex space-x-4">
+        <Input
+          type="text"
+          placeholder="Search exams..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full"
+        />
+        <Select onValueChange={setSortBy} defaultValue="name">
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Sort by" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="name">Name</SelectItem>
+            <SelectItem value="cost">Cost</SelectItem>
+            <SelectItem value="priority">Priority</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Name</TableHead>
+            <TableHead>Issues Detected</TableHead>
+            <TableHead>Estimated Risk</TableHead>
+            <TableHead>Average Cost ($)</TableHead>
+            <TableHead>Standard Practice</TableHead>
+            <TableHead>Relative Priority</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {filteredAndSortedExams.map((exam, index) => (
+            <TableRow key={index}>
+              <TableCell className="font-medium">{exam.name}</TableCell>
+              <TableCell>{exam.issuesDetected}</TableCell>
+              <TableCell>{exam.estimatedRisk}</TableCell>
+              <TableCell>{exam.averageCost}</TableCell>
+              <TableCell>{exam.standardPractice}</TableCell>
+              <TableCell>{exam.relativePriority}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
+  );
+}
